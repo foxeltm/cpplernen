@@ -1,6 +1,2 @@
 ﻿  ConsoleApplication1.cpp
-C:\dev\OpenTheoSigma\ConsoleApplication1\ConsoleApplication1.cpp(9,7): error C2039: 'getline': is not a member of 'std'
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\iostream(19,1):
-      see declaration of 'std'
-  
-C:\dev\OpenTheoSigma\ConsoleApplication1\ConsoleApplication1.cpp(9,7): error C3861: 'getline': identifier not found
+  ConsoleApplication1.vcxproj -> C:\dev\OpenTheoSigma\x64\Debug\ConsoleApplication1.exe
