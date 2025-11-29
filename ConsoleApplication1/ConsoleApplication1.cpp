@@ -1,20 +1,24 @@
 #include <iostream>
+#include <vector>
 
 int main () 
 {
-	int a = 10;
-	int y = 20;
-	int sum = a + y;
-	std::string b = "Hello";
-	char c = 'A';
+	
+	int students = 6 - 5 + 4 * 3 / 2;
 
-	std::cout << b << " " << c << " \n";
-	std::cout << a << "\n";
-	std::cout << y << "\n";
-	std::cout << "Sum is: " << sum << "\n";
+	//students = students + 2;
+	//students += 2;
+	//students++;
 
+	//students -= 1;
+	//students--;
 
+	//students *= 2;
+	//students /= 4;
 
+	//int remainder = students % 3;
 
+	std::cout << students;'/n';
+											
 	std::cin.get();
 }
