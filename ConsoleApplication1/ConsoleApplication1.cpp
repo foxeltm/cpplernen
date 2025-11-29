@@ -2,13 +2,18 @@
 
 int main () 
 {
+	std::string name;
+	int age;
 
-	int correct = 8;
-	int questions = 10;
-	double score = correct / (double)questions * 100;
+	std::cout << "What's your name?: ";
+	std::cin >> name;
 
-	std::cout << "Your score is: " << score << "%" << std::endl;
-	
+	std::cout << "What's your age?: ";
+	std::cin >> age;
+
+	std::cout << "Hello " << name << '\n';
+	std::cout << "You are " << age << " years old";
+
 
 	std::cin.get();
 }
