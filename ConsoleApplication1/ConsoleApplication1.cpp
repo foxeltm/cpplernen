@@ -3,20 +3,44 @@
 
 int main () 
 {
-	double a;
-	double b;
-	double c;
+	bool playagain = true;
 
-	std::cout << "enter side a ";
-	std::cin >> a;
+	while (playagain)
+	{
+		double a;
+		double b;
+		double c;
 
-	std::cout << "enter side b ";
-	std::cin >> b;
+		std::cout << "enter side a ";
+		std::cin >> a;
 
-	c = std::sqrt(pow(a, 2) + pow(b, 2);
+		std::cout << "enter side b ";
+		std::cin >> b;
 
-	std::cout << "hypotenuse = " << c << std::endl;
+		c = std::sqrt(pow(a, 2) + pow(b, 2));
 
+		std::cout << "hypotenuse = " << c << std::endl;
 
+		std::cout << "play again? (1 = yes, 0 = no) ";
+
+		int answer;
+
+		std::cin >> answer;
+		
+		if(answer == 0)
+		{
+			playagain = false;
+		}
+		else if (answer == 1)
+		{
+			playagain = true;
+		}
+		else
+		{
+			std::cout << "invalid input, exiting program." << std::endl;
+			playagain = false;
+		}
+
+	}
 	std::cin.get();
 }
