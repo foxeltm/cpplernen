@@ -2,19 +2,13 @@
 
 int main () 
 {
-	int a = 10;
-	int y = 20;
-	int sum = a + y;
-	std::string b = "Hello";
-	char c = 'A';
 
-	std::cout << b << " " << c << " \n";
-	std::cout << a << "\n";
-	std::cout << y << "\n";
-	std::cout << "Sum is: " << sum << "\n";
+	int correct = 8;
+	int questions = 10;
+	double score = correct / (double)questions * 100;
 
-
-
+	std::cout << "Your score is: " << score << "%" << std::endl;
+	
 
 	std::cin.get();
 }
