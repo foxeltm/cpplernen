@@ -1,36 +1,17 @@
 #include <iostream>
-#include <cmath>
 
-int main () 
+int main()
 {
-	char grade;
+	//int grade;
+	//(grade >= 60) ? std::cout << "Passed\n" : std::cout << "Failed\n";
 
-	std::cout << "What letter grade?: ";
-	std::cin >> grade;
+	//int number = 9;
+	//number % 2 ? std::cout << "ODD" : std::cout << "EVEN";
 
-	switch(grade) 
-	{
-		case 'A':
-			std::cout << "Excellent!" << std::endl;
-			break;
-		case 'B':
-			std::cout << "Well done" << std::endl;
-			break;
-		case 'C':	
-			std::cout << "Good" << std::endl;
-			break;
-		case 'D':
-			std::cout << "You passed" << std::endl;
-			break;
-		case 'F':
-			std::cout << "Better try again" << std::endl;
-			break;
-		default:
-			std::cout << "Invalid grade" << std::endl;
+	bool hungry = true;
 
-	}
-	
-
+	//hungry ? std::cout << "Feed me!" : std::cout << "I'm not hungry";
+	std::cout << (hungry ? "Feed me!" : "I'm not hungry");
 
 	std::cin.get();
 }
