@@ -2,67 +2,46 @@
 
 int main()
 {	
+	std::string name;
 
-	bool playagain = true;
+	std::cout << "Enter your name: ";
+	std::cin >> name;
 
-	std::cout << "XXXXXXX Temperature conversion XXXXXXX\n";
-
-	while (playagain)
-	{
-		double temp;
-		char unit;
-
-		std::cout << "F = Fahrenheit\n";
-		std::cout << "C = Celsius\n";
-		std::cout << "what unit would you like to convert to ";
-		std::cin >> unit;
-
-		if (unit == 'F' || unit == 'f')
-		{
-			std::cout << "Enter temperature in Celsius: ";
-			std::cin >> temp;
-
-			temp = (1.8 * temp) + 32;
-			std::cout << "Temperature in Fahrenheit: " << temp << " F\n";
-		}
-		else if (unit == 'C' || unit == 'c')
-		{
-			std::cout << "Enter temperature in Fahrenheit: ";
-			std::cin >> temp;
-
-			temp = (temp - 32) / 1.8;
-			std::cout << "Temperature in Celsius: " << temp << " C\n";
-		}
-		else
-		{
-			std::cout << "Invalid unit entered.\n please enter C or F\n";
-		}
-
-		std::cout << "Would you like to convert another temperature? (y/n): ";
-		
-		char response;
-		std::cin >> response;
-
-		if(response == 'n' || response == 'N')
-		{
-			playagain = false;
-		}
-		else if (response == 'y' || response == 'Y')
-		{
-			playagain = true;
-		}
-		else
-		{
-			std::cout << "Invalid response. Exiting the program.\n";
-			playagain = false;
-		}
-
-
-	}
-
-
+	//if (name.length() > 12) 
+	//{
+	//	std::cout << "Your name is too long!" << std::endl;
+	//}
+	//else 
+	//{
+	//	std::cout << "Hello, " << name << "!" << std::endl;
+	//}
 	
+	//if (name.empty()) 
+	//{
+		//std::cout << "You didn't enter a name!" << std::endl;
+	//}
+	//else 
+	//{
+		//std::cout << "Hello, " << name << "!" << std::endl;
+	//}
 
+	//name.clear();
+
+	//std::cout << "Hello " << name << "!" << std::endl;
+
+	//name.append("@gmail.com");
+
+	//std::cout << "Your username is now: " << name << std::endl;
+
+	//std::cout << name.at(0);
+
+	//name.insert(0, "@");
+	//std::cout << "Your username is now: " << name << std::endl;
+
+	//std::cout << name.find(' ');
+
+	name.erase(0, 3);
+	std::cout << name;
 
 	std::cin.get();
 }
