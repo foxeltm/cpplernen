@@ -2,16 +2,12 @@
 
 int main()
 {	
+	for (int i = 10; i >= 0; i--) 
+	{
+		std::cout << i << "\n";
+	}
+	std::cout << "happy new year\n";
 
-	int number;
- 
-	do{
-		std::cout << "Enter a positiv number ";
-		std::cin >> number;
-
-	}while(number < 0)
-
-	std::cout << number;
 
 	std::cin.get();
 }
