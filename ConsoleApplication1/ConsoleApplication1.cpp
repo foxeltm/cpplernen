@@ -2,46 +2,16 @@
 
 int main()
 {	
-	std::string name;
 
-	std::cout << "Enter your name: ";
-	std::cin >> name;
+	int number;
+ 
+	do{
+		std::cout << "Enter a positiv number ";
+		std::cin >> number;
 
-	//if (name.length() > 12) 
-	//{
-	//	std::cout << "Your name is too long!" << std::endl;
-	//}
-	//else 
-	//{
-	//	std::cout << "Hello, " << name << "!" << std::endl;
-	//}
-	
-	//if (name.empty()) 
-	//{
-		//std::cout << "You didn't enter a name!" << std::endl;
-	//}
-	//else 
-	//{
-		//std::cout << "Hello, " << name << "!" << std::endl;
-	//}
+	}while(number < 0)
 
-	//name.clear();
-
-	//std::cout << "Hello " << name << "!" << std::endl;
-
-	//name.append("@gmail.com");
-
-	//std::cout << "Your username is now: " << name << std::endl;
-
-	//std::cout << name.at(0);
-
-	//name.insert(0, "@");
-	//std::cout << "Your username is now: " << name << std::endl;
-
-	//std::cout << name.find(' ');
-
-	name.erase(0, 3);
-	std::cout << name;
+	std::cout << number;
 
 	std::cin.get();
 }
