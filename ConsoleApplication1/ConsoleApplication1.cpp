@@ -1,17 +1,29 @@
 #include <iostream>
+#include <ctime>
 
 int main()
 {	
-	srand(time(NULL));
+	srand(time(0));
+	int randnum = rand() % 5 + 1;
 
-	int num1 = (rand() % 20) + 1;
-	int num2 = (rand() % 20) + 1;
-	int num3 = (rand() % 20) + 1;
-		
-
-	std::cout << "Random number: " << num1 << std::endl;
-	std::cout << "Random number: " << num2 << std::endl;
-	std::cout << "Random number: " << num3 << std::endl;
+	switch (randnum)
+	{
+		case 1:
+			std::cout << "You win a sticker!" << std::endl;
+			break;
+		case 2:
+			std::cout << "You win a pen!" << std::endl;
+			break;
+		case 3:
+			std::cout << "You win a phone!" << std::endl;
+			break;
+		case 4:
+			std::cout << "You win a laptop!" << std::endl;
+			break;
+		case 5:
+			std::cout << "You win a car!" << std::endl;
+			break;
+	}
 
 
 	std::cin.get();
