@@ -1,24 +1,20 @@
 #include <iostream>
 #include <ctime>
 
-void happyBirthday(std::string name, int age);
+std::string concatStrings(std::string sting1, std::string string2);
 
 int main()
 {	
-	std::string name = "Raffael";
-	int age = 14;
+	std::string firstname = "raffael";
+	std::string lastname = "fuchs";
+	std::string fullname = concatStrings(firstname, lastname);
 
-
-	happyBirthday(name, age);
+	std::cout << "Hello, " << fullname << "!" << std::endl;
 	
 
 	std::cin.get();
 }
-void happyBirthday(std::string name, int age)
+std::string concatStrings(std::string sting1, std::string string2) 
 {
-	std::cout << "Happy Birthday to " << name << '\n';
-	std::cout << "Happy Birthday to " << name << '\n';
-	std::cout << "Happy Birthday Dear" << name << '\n';
-	std::cout << "Happy Birthday to " << name << '\n';
-	std::cout << "You are now " << age << " years old!" << '\n';
+	return sting1 + " " + string2;
 }
