@@ -1,44 +1,30 @@
 #include <iostream>
 #include <string>
 
-std::string concatStrings(std::string string1, std::string string2);
+void bakePizza();
+void bakePizza(std::string topping1);
 
 int main()
 {
-    bool play = true;
+	bakePizza();
+	bakePizza("salami, schinken, mais ");
 
-    while (play)
-    {
-        std::string firstname;
-        std::string lastname;
-
-        std::cout << "gib deinen vornamen ein: ";
-        std::cin >> firstname;
-
-        std::cout << "gib deinen nachnamen ein: ";
-        std::cin >> lastname;
-
-        std::string fullname = concatStrings(firstname, lastname);
-
-        std::cout << "Hello, " << fullname << "!" << std::endl;
-        std::cout << "Moechtest du es nochmal versuchen? (j/n): ";
-
-        char response;
-        std::cin >> response;  // besser!
-
-        if (response == 'n' || response == 'N')
-            play = false;
-        else if (response == 'j' || response == 'J')
-            play = true;
-        else
-        {
-            std::cout << "ungueltige eingabe, das programm wird beendet." << std::endl;
-            play = false;
-        }
-    }
+    std::cin.get();
 }
 
-std::string concatStrings(std::string string1, std::string string2)
+void bakePizza() 
 {
-    return string1 + " " + string2;
+    std::cout << "Herer is your pizza\n";
+}
+void bakePizza(std::string topping1)
+{
+    std::cout << "Herer is your " << topping1 << "pizza\n";
+}
+void bakePizza(std::string topping1, std::string topping2)
+{
+    std::cout << "Herer is your " << topping1 << topping2 << "pizza\n";
+}
+void bakePizza(std::string topping1, std::string topping2, std::string topping3)
+{
+    std::cout << "Herer is your " << topping1 << topping2 << topping3 << "pizza\n";
 }
