@@ -3,13 +3,15 @@
 
 int main()
 {
-	double prices[] = {5.00, 7.87, 9.99, 15.80};
 
-	std::cout << prices[0] << '\n';
-	std::cout << prices[1] << '\n';
-	std::cout << prices[2] << '\n';
-	std::cout << prices[3] << '\n';
+	bool student = true;	
+	char grade = 'F';
+	std::string name = "Bro";
+	double gpa = 3.75;
+	char grades[] = { 'A', 'B', 'C', 'D', 'F' };
+	std::string students[] = { "Bro", "Brah", "Bruh" };
 
+	std::cout << sizeof(students) / sizeof(std::string) << " bytes" << '\n';
 
 
 	std::cin.get();
