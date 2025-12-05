@@ -3,14 +3,15 @@
 
 int main()
 {
-	//std::string students[] = { "Alice", "Bob", "Charlie", "Diana", "Ethan", "sandy"};
-	char grades[] = { 'A', 'B', 'C', 'D', 'F' };
+	//std::string students[] = { "Alice", "Bob", "Charlie", "Diana", "Ethan", "sandy" };
+	//int grades[] = { 85, 92, 78, 90, 88, 76 };
+	std::string friends[] = { "theo", "dominik", "marvin", "boern"};
 
-	for (int i = 0; i < sizeof(grades)/sizeof(char); i++)
+	for (std::string freund : friends)
 	{
-		std::cout << grades[i] << '\n';
+		std::cout << freund << '\n';
 	}
-	
+
 
 	std::cin.get();
 }
