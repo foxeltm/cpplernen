@@ -1,35 +1,39 @@
 #include <iostream>
 #include <ctime>
 
-int searchArray(std::string array[], int size, std::string element);
+void sort(int array[], int size);
 
 int main()
 {
-    std::string foods[] = { "pizza", "hamburger", "hotdog" };
-    int size = sizeof(foods) / sizeof(foods[0]);
-    int index;
-    std::string myFood;
 
-    std::cout << "Enter element to search for: " << '\n';
-	std::cin >> myFood;
+	int array[] = { 10, 2, 3, 5, 7, 9, 1, 8, 6, 4 };
+	int size = sizeof(array) / sizeof(array[0]);
 
-    index = searchArray(foods, size, myFood);
+	sort(array, size);
 
-    if (index != -1) {
-        std::cout << myFood << " is at index " << index;
-    }
-    else {
-        std::cout << myFood << " is not in the array";
-    }
+	for (int element : array)
+	{
+		std::cout << element << " ";
+	}
 
-    return 0;
+    std::cin.get();
 }
-int searchArray(std::string array[], int size, std::string element) {
+void sort(int array[], int size)
+{
+	int temp;
+	for (int i = 0; i < size - 1;i++)
+	{
+		for (int j = 0; j < size - i - 1; j++)
+		{
+			if (array[j] > array[j + 1])
+			{
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+			}
+		}
+	}
 
-    for (int i = 0; i < size; i++) {
-        if (array[i] == element) {
-            return i;
-        }
-    }
-    return -1;
+
+
 }
