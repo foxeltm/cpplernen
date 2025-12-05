@@ -3,16 +3,14 @@
 
 int main()
 {
-
-	bool student = true;	
-	char grade = 'F';
-	std::string name = "Bro";
-	double gpa = 3.75;
+	//std::string students[] = { "Alice", "Bob", "Charlie", "Diana", "Ethan", "sandy"};
 	char grades[] = { 'A', 'B', 'C', 'D', 'F' };
-	std::string students[] = { "Bro", "Brah", "Bruh" };
 
-	std::cout << sizeof(students) / sizeof(std::string) << " bytes" << '\n';
-
+	for (int i = 0; i < sizeof(grades)/sizeof(char); i++)
+	{
+		std::cout << grades[i] << '\n';
+	}
+	
 
 	std::cin.get();
 }
