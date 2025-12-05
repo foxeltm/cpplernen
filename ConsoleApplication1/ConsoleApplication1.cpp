@@ -1,115 +1,144 @@
 #include <iostream>
 #include <ctime>
 
-enum BankOptions
-{
-	SHOW_BALANCE = 1,
-	DEPOSIT,
-	WITHDRAW,
-	EXIT
-};
-
-void showBalance(double balance);
-double deposit();
-double withdraw(double &balance);
+char getUserChoice();
+char getComputerChoice();
+void showChoices(char choice);
+void choseWinner(char player, char computer);
 
 int main()
 {
+	bool playAgain = true;
 
-	double balance = 0.0;
-	bool running = true;
-	int userInput;
+	std::cout << "Welcome to Rock, Paper, Scissors!" << '\n';
 
-
-	std::cout << "Willkommen bei einem simplem Bank System\n";
-
-
-	showBalance(balance);
-	
-	while (running)
+	while (playAgain)
 	{
-		std::cout << "Bitte waehlen Sie eine Option:\n";
-		std::cout << "1. Guthaben anzeigen\n";
-		std::cout << "2. Einzahlen\n";
-		std::cout << "3. Abheben\n";
-		std::cout << "4. Beenden\n";
+		char player;
+		char computer;
 
-		std::cin >> userInput;
-		
+		player = getUserChoice();
+		std::cout << "Player choice: ";
+		showChoices(player);
 
-		switch (userInput)
+		computer = getComputerChoice();
+		std::cout << "Computer choice: ";
+		showChoices(computer);
+
+		choseWinner(player, computer);
+
+		std::cout << "Do you want to play again? (1 = yes, 0 = no): ";
+		char answer;
+		std::cin >> answer;
+
+		if (answer == '0') 
 		{
-			case 1: SHOW_BALANCE:
-				showBalance(balance);
-				break;
-			case 2: DEPOSIT:
-				balance += deposit();
-				showBalance(balance);
-				break;
-			case 3: WITHDRAW:
-				balance -= withdraw(balance);
-				showBalance(balance);
-				break;
-			case 4: EXIT:
-				std::cout << "Danke fuer die Nutzung unseres Bank Systems. Auf Wiedersehen!\n";
-				running = false;
-				break;
-			default:std::cout <<"Ungueltige Option. Bitte versuchen Sie es erneut.\n";
-				break;
-
+			playAgain = false;
 		}
-
+		else if(answer == '1')
+		{
+			playAgain = true;
+		}
+		else
+		{
+			std::cout << "Invalid input. Exiting the game." << '\n';
+			playAgain = false;
+		}
 	}
-
-	
-
-    std::cin.get();
 }
-void showBalance(double balance)
+
+char getUserChoice()
 {
-	std::cout << "Deine momentanes Guthaben in $ bertaegt" << balance << '\n';
+
+	char player;
+
+	do {
+		std::cout << "Enter your choice (R, P, S): ";
+		std::cin >> player;
+	} while (player != 'r' && player != 'p' && player != 's');
+
+	return player;
 }
 
-double deposit()
-{	
-	std::cout << "deposit called\n";
-
-	double amount;
-	std::cout << "Geben Sie den Einzahlungsbetrag in $ ein: ";
-	std::cin >> amount;
-
-	if (amount > 0)
-	{
-		return amount;
-	}
-	else 
-	{
-		std::cout << "Ungueltiger Betrag. Bitte versuchen Sie es erneut.\n";
-		
-	}
-
-}
-
-double withdraw(double &balance)
+char getComputerChoice()
 {
-	double amount;
-	
-	std::cout << "Geben Sie den Abhebungsbetrag in $ ein: ";
-	std::cin >> amount;
+	srand(time(0));
+	int num = rand() % 3 + 1;
+
+	switch (num) {
+		case 1:
+			return 'r';
+		case 2: 
+			return 'p';
+		case 3:
+			return 's';	
+	}
 
 
-	if (amount > balance)
+	return 0;
+}
+
+void showChoices(char choice)
+{
+	switch (choice)
 	{
-		std::cout << "du hast kein geld du armutskind\n";
+		case 'r':
+			std::cout << " Rock" << '\n';
+			break;
+		case 'p':
+			std::cout << " Paper" << '\n';
+			break;
+		case 's':
+			std::cout << " Scissors" << '\n';
+			break;
 	}
-	else if (amount < 0)
+}
+
+void choseWinner(char player, char computer)
+{
+	switch (player)
 	{
-		std::cout << "ungueltiger betrag. bitte versuchen sie es erneut.\n";
+		case 'r':   if (computer == 'r')
+					{
+						std::cout << "It's a tie!" << '\n';	
+					}
+					else if (computer == 'p')
+					{
+						std::cout << "Computer wins!" << '\n';	
+					}
+					else if (computer == 's')
+					{
+						std::cout << "Player wins!" << '\n';	
+					}
+
+				break;
+		case 'p':   if (computer == 'r')
+					{
+						std::cout << "Player wins!" << '\n';	
+					}
+					else if (computer == 'p')
+					{
+						std::cout << "It's a tie!" << '\n';	
+					}
+					else if (computer == 's')
+					{
+						std::cout << "Computer wins!" << '\n';	
+					}
+				break;
+
+		case 's':   if (computer == 'r')
+					{
+						std::cout << "Computer wins!" << '\n';	
+					}
+					else if (computer == 'p')
+					{
+						std::cout << "Player wins!" << '\n';	
+					}
+					else if (computer == 's')
+					{
+						std::cout << "It's a tie!" << '\n';	
+					}
+				break;
+
 	}
-	else
-	{
-		balance -= amount;
-		std::cout << "Sie haben erfolgreich $" << amount << " abgehoben.\n";
-	}
-	return amount;
 }
