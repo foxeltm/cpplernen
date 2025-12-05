@@ -1,17 +1,26 @@
 #include <iostream>
 #include <ctime>
 
+double getTotal(double prices[], int size);
+
 int main()
 {
-	//std::string students[] = { "Alice", "Bob", "Charlie", "Diana", "Ethan", "sandy" };
-	//int grades[] = { 85, 92, 78, 90, 88, 76 };
-	std::string friends[] = { "theo", "dominik", "marvin", "boern"};
+	double prices[] = { 19.99, 29.99, 4.99, 99.99, 149.99 };
+	int size = sizeof(prices) / sizeof(prices[0]);
+	double total = getTotal(prices, size);
 
-	for (std::string freund : friends)
-	{
-		std::cout << freund << '\n';
-	}
-
+	std::cout << "$" << total << '\n';
 
 	std::cin.get();
+}
+
+double getTotal(double prices[], int size)
+{
+	double total = 0;
+
+	for (int i = 0; i < size; i++)
+	{
+		total += prices[i];
+	}
+	return total;
 }
