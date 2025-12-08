@@ -5,109 +5,50 @@
 
 int main()
 {	
-    std::cout << "What burger do you want to get\n ";
-    std::string Menu[] = { "hamburger", " cheeseburger", " burger" };
-    std::string item;
-    int answer;
 
-    std::cout << "Here is the Menu \n";
-    
+	std::string questions[] = { "1. What year was C++ created?: ",
+								  "2. Who invented C++?: ",
+								  "3. What is the predecessor of C++?: ",
+								  "4. Is the Earth flat?" };
 
-    for (int i = 0; i < sizeof(Menu) / sizeof(Menu[0]); i++)
-    {
-        std::cout << Menu[i] << '\n';
-    }
-    
+	std::string options[][4] = { {"A. 1969", "B. 1975", "C. 1985", "D. 1989"},
+								{"A. Guido van Rossum", "B. Bjarne Stroustrup", "C. John Carmack", "D. Mark Zuckerburg"},
+								{"A. C", "B. C+", "C. C--", "D. B++"},
+								{"A. yes", "B. no", "C. sometimes", "D. what's Earth?"} };
 
-   
-    std::cout << "enter the item tou want to get: ";
-    std::cin >> item;
+	char answerKey[] = { 'C', 'B', 'A', 'B' };
 
-    if (item == "hamburger")
-    {
-        std::cout << "you need to pay 5$. \n";
-    }
-    else if (item == "cheeseburger")
-    {
-        std::cout << "you need to pay 3$. \n";
-    }
-    else if (item == "burger")
-    {
-        std::cout << "you need to pay 2$. \n";
-    }
-    else
-    {
-        std::cout << "Enter one of the options";
-    }
-    
-    std::cin >> answer;
+	int size = sizeof(questions) / sizeof(questions[0]);
+	char guess;
+	int score = 0;
 
-    switch (answer)
-    {
-        case 1 :
-            if (answer == 5 )
-            {
-                std::cout << "here you go with your hamburger ";
-            }
-            else if (answer > 5 )
-            {
-                std::cout << "you gave to mutch ";
-            }
-            else if (answer < 5)
-            {
-                std::cout << "not enough money";
-            }
-            else 
-            {
-                std::cout << "invalid number";
-            }
-            break;
+	for (int i = 0; i < size; i++) {
+		std::cout << "*******************************\n";
+		std::cout << questions[i] << '\n';
+		std::cout << "*******************************\n";
 
-        case 2:
-            if (answer == 3 )
-            {
-                std::cout << "here you go with your cheaseburger ";
-            }
-            else if (answer > 3 )
-            {
-                std::cout << "you gave to mutch ";
-            }
-            else if (answer < 3)
-            {
-                std::cout << "not enough money";
-            }
-            else
-            {
-                std::cout << "invalid number";
-            }
-            break;
+		for (int j = 0; j < sizeof(options[i]) / sizeof(options[i][0]); j++) {
+			std::cout << options[i][j] << '\n';
+		}
 
-        case 3:
-            if (answer == 2 )
-            {
-                std::cout << "here you go with your burger ";
-            }
-            else if (answer > 2 )
-            {
-                std::cout << "you gave to mutch ";
-            }
-            else if (answer < 2 )
-            {
-                std::cout << "not enough money";
-            }
-            else
-            {
-                std::cout << "invalid number";
-            }
-            break;
+		std::cin >> guess;
+		guess = toupper(guess);
 
-
-    }
-
-
-
-
-
+		if (guess == answerKey[i]) {
+			std::cout << "CORRECT\n";
+			score++;
+		}
+		else {
+			std::cout << "WRONG!\n";
+			std::cout << "Answer: " << answerKey[i] << '\n';
+		}
+	}
+	std::cout << "*******************************\n";
+	std::cout << "*           RESULTS           *\n";
+	std::cout << "*******************************\n";
+	std::cout << "CORRECT GUESSES: " << score << '\n';
+	std::cout << "# of QUESTIONS: " << size << '\n';
+	std::cout << "SCORE: " << (score / (double)size) * 100 << "%";
 
     std::cin.get();
 }
