@@ -2,19 +2,26 @@
 #include <ctime>
 #include <string>
 
+void swap(int &x, int &y);
 
 int main()
 {	
+    int x = 2;
+    int y = 3;
 
-	std::string name = "bro";
-	int age = 21;
-	bool students = true;
+    swap(x, y);
 
-	std::cout << &name << '\n';
-	std::cout << &age << '\n';
-	std::cout << &students << '\n';
-
+    std::cout << x << '\n';
+    std::cout << y << '\n';
 
 
     std::cin.get();
+}
+void swap(int &x, int &y)
+{
+    int temp = 0;
+
+    temp = x;
+    x = y;
+    y = temp;
 }
