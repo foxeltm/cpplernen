@@ -2,59 +2,19 @@
 #include <ctime>
 #include <string>
 
-int getDigit(const int number);
-int sumOddDigits(const std::string cardNumber);
-int sumEvenDigits(const std::string cardNumber);
-
 int main()
-{	
- 
-    std::string cardNumber;
-    int result = 0;
+{	    
+    std::string name = "Dominik";
+    int age = 14;
+    std::string freePizzas[5] = { "pizza1", "pizza2","pizza3","pizza4","pizza5", };
 
-    std::cout << "Enter your credit card number:";
-    std::cin >> cardNumber;
-
-    result = sumEvenDigits(cardNumber) + sumOddDigits(cardNumber);
-
-    if (result % 10 == 0)
-    {
-        std::cout << cardNumber << " is valid";
-    }
-    else
-    {
-        std::cout << cardNumber << " is not valid";
-    }
-
+    std::string *pName = &name;
+    int *pAge = &age;
+    std::string *pFreePizzas = freePizzas;
+    
+    std::cout << *pName << '\n';
+    std::cout << *pAge << '\n';
+    std::cout << freePizzas << '\n';
 
     std::cin.get();
-}
-int getDigit(const int number)
-{
-
-    return number % 10 + (number / 10 % 10);
-}
-int sumOddDigits(const std::string cardNumber)
-{
-
-    int sum = 0;
-
-    for (int i = cardNumber.size() - 1; i >= 0; i -= 2)
-    {
-        sum += cardNumber[i] - '0';
-    }
-
-    return sum;
-}
-int sumEvenDigits(const std::string cardNumber)
-{
-    int sum = 0;
-
-    for (int i = cardNumber.size() -2; i >= 0; i-= 2)
-    {
-        sum += getDigit((cardNumber[i] - '0') * 2);
-    }
-
-    return sum;
-    
 }
