@@ -4,17 +4,22 @@
 
 int main()
 {	    
-    std::string name = "Dominik";
-    int age = 14;
-    std::string freePizzas[5] = { "pizza1", "pizza2","pizza3","pizza4","pizza5", };
+    int *pointer = nullptr;
+    int x = 123;
 
-    std::string *pName = &name;
-    int *pAge = &age;
-    std::string *pFreePizzas = freePizzas;
-    
-    std::cout << *pName << '\n';
-    std::cout << *pAge << '\n';
-    std::cout << freePizzas << '\n';
+    pointer = &x;
+
+
+    if (pointer == nullptr)
+    {
+        std::cout << "address was not assigned\n";
+    }
+    else
+    {
+        std::cout << "address was assigned\n";
+        std::cout << *pointer;
+    }
+
 
     std::cin.get();
 }
