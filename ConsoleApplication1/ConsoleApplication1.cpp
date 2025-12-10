@@ -2,31 +2,24 @@
 #include <ctime>
 #include <string>
 
-int factorial(int num);
-
 template<typename T>
-void Log (T value)
+void Log(T value)
 {
     std::cout << value << std::endl;
 }
 
+template<typename L, typename U>
+auto max(L x, U y)
+{
+    return (x > y) ? x : y;
+}
+
 int main()
 {	    
-    Log(factorial(10));
-
+    Log(max(1.6969, 2));
 
     std::cin.get();
 }
 
-int factorial(int num)
-{
-    if(num > 1)
-    {
-        return num * factorial(num - 1);
-    }
-    else
-    {
-        return 1;
-    }
-}
+
 
