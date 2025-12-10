@@ -2,6 +2,8 @@
 #include <ctime>
 #include <string>
 
+int factorial(int num);
+
 template<typename T>
 void Log (T value)
 {
@@ -10,25 +12,21 @@ void Log (T value)
 
 int main()
 {	    
-    char* pGrades = NULL;
-    int size;
+    Log(factorial(10));
 
-    Log("How many grades to enter in? ");
-    std::cin >> size;
-
-    pGrades = new char[size];
-
-    for (int i = 0; i < size; i++)
-    {
-        std::cout << "Enter gerade #" << i + 1 << ": ";
-        std::cin >> pGrades[i];
-    }
-    for (int i = 0; i < size; i++)
-    {
-        std::cout << pGrades[i] << " ";
-    }
-
-    delete[] pGrades;
 
     std::cin.get();
 }
+
+int factorial(int num)
+{
+    if(num > 1)
+    {
+        return num * factorial(num - 1);
+    }
+    else
+    {
+        return 1;
+    }
+}
+
