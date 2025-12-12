@@ -2,49 +2,31 @@
 #include <ctime>
 #include <string>
 
-template<typename T>
-void Log(T value)
+enum Day{sunday = 0, monday = 1, tuesday = 2, wednesday = 3, thursday = 4, friday = 5, saturday = 6};
+
+int main() 
 {
-    std::cout << value << std::endl;
-}
+    Day today = friday;
 
-struct Car {
-    std::string model;
-    int year;
-    std::string color;
-};
+    switch (Day)
+    {
+    case sunday:    std::cout << "It is Sunday!\n";
+        break;
+    case monday:    std::cout << "It is Monday!\n";
+        break;
+    case tuesday:   std::cout << "It is Tuesday!\n";
+        break;
+    case wednesday: std::cout << "It is Wednesday!\n";
+        break;
+    case thursday:  std::cout << "It is Thursday!\n";
+        break;
+    case friday:    std::cout << "It is Friday!\n";
+        break;
+    case saturday:  std::cout << "It is Saturday!\n";
+        break;
+    }
 
-void printCar(Car& car);
-void paintCar(Car& car, std::string color);
-
-int main() {
-
-    Car car1;
-    Car car2;
-
-    car1.model = "Mustang";
-    car1.year = 2023;
-    car1.color = "red";
-
-    car2.model = "Corvette";
-    car2.year = 2024;
-    car2.color = "blue";
-
-    paintCar(car1, "silver");
-    paintCar(car2, "gold");
-
-    printCar(car1);
-    printCar(car2);
-
-    return 0;
-}
-void printCar(Car& car) {
-    std::cout << car.model << '\n';
-    std::cout << car.year << '\n';
-    std::cout << car.color << '\n';
-}
-void paintCar(Car& car, std::string color) {
-    car.color = color;
+    std::cin.get();
 }
 
 
