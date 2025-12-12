@@ -2,31 +2,41 @@
 #include <ctime>
 #include <string>
 
-enum Day{sunday = 0, monday = 1, tuesday = 2, wednesday = 3, thursday = 4, friday = 5, saturday = 6};
+class Car
+{
+public:
+    std::string make;
+    std::string model;
+    int year;
+    std::string color;
+
+    void accelerate()
+    {
+        std::cout << "You step on the gas!\n";
+    }
+    void breake()
+    {
+        std::cout << "You step on the braekes!\n";
+    }
+};
 
 int main() 
 {
-    Day today = friday;
+    Car car1;
 
-    switch (Day)
-    {
-    case sunday:    std::cout << "It is Sunday!\n";
-        break;
-    case monday:    std::cout << "It is Monday!\n";
-        break;
-    case tuesday:   std::cout << "It is Tuesday!\n";
-        break;
-    case wednesday: std::cout << "It is Wednesday!\n";
-        break;
-    case thursday:  std::cout << "It is Thursday!\n";
-        break;
-    case friday:    std::cout << "It is Friday!\n";
-        break;
-    case saturday:  std::cout << "It is Saturday!\n";
-        break;
-    }
+    car1.make = "Ford";
+    car1.model = "Mustang";
+    car1.year = 2023;
+    car1.color = "red";
+
+    std::cout << car1.make << '\n';
+    std::cout << car1.model << '\n';
+    std::cout << car1.year << '\n';
+    std::cout << car1.color << '\n';
+
+    car1.accelerate();
+    car1.breake();
+
 
     std::cin.get();
 }
-
-
