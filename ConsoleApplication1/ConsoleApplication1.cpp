@@ -2,40 +2,22 @@
 #include <ctime>
 #include <string>
 
-class Car
+int Multiply(int a, int b)
 {
-public:
-    std::string make;
-    std::string model;
-    int year;
-    std::string color;
+    return a * b;
+}
 
-    void accelerate()
-    {
-        std::cout << "You step on the gas!\n";
-    }
-    void breake()
-    {
-        std::cout << "You step on the braekes!\n";
-    }
-};
+void MultiplyAndLog(int a, int b)
+{
+    int result = Multiply(a, b);
+    std::cout << result << std::endl;
+}
 
 int main() 
 {
-    Car car1;
-
-    car1.make = "Ford";
-    car1.model = "Mustang";
-    car1.year = 2023;
-    car1.color = "red";
-
-    std::cout << car1.make << '\n';
-    std::cout << car1.model << '\n';
-    std::cout << car1.year << '\n';
-    std::cout << car1.color << '\n';
-
-    car1.accelerate();
-    car1.breake();
+    MultiplyAndLog(6, 9);
+    MultiplyAndLog(66, 99);
+    MultiplyAndLog(60, 90);
 
 
     std::cin.get();
