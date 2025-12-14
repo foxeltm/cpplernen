@@ -2,31 +2,47 @@
 #include <ctime>
 #include <string>
 
-void Farben();
+class Log
+{
+public:
+    const int LogLevelError = 0;
+    const int LogLevelWarning = 1;
+    const int LogLevelInf = 2;
+private:
+    int m_LogLevel = LogLevelInf;
+public:
+    void SetLevel(int level)
+    {
+        m_LogLevel = level;
+    }
 
-#define RESET "\033[0m"
-#define RED "\033[31m"
-#define GREEN "\033[32m"
-#define YELLOW "\033[33m"
-#define BLUE "\033[34m"
-#define LILA "\033[35m"
-#define CYAN "\033[36m"
+    void Error(const char* message)
+    {
+        if (m_LogLevel >= LogLevelError)
+            std::cout << "[ERROR]" << message << std::endl;
+    }
+
+    void Warn(const char* message)
+    {
+        if(m_LogLevel >= LogLevelWarning)
+            std::cout << "[WARNING]" << message << std::endl;
+    }
+
+    void Inf(const char* message)
+    {
+        if (m_LogLevel >= LogLevelInf)
+            std::cout << "[INFO]" << message << std::endl;
+    }
+};
 
 int main() 
 {
-    Farben();
+    Log log;
+    log.SetLevel(log.LogLevelError);
+    log.Warn(" hello");
+    log.Error(" lord sigma");
+    log.Inf(" EYYYYYYY");
+
 
     std::cin.get();
-}
-void Farben()
-{
-    std::string farben[] = { RED, GREEN, YELLOW, BLUE, LILA, CYAN };
-    int size = sizeof(farben) / sizeof(farben[0]);
-
-    srand(time(nullptr));
-
-    for (int i = 0; i < size; i++)
-    {
-        std::cout << farben[i] << "Hallo ich bin in einer coolen farbe" << RESET << std::endl;
-    }
 }
