@@ -2,6 +2,8 @@
 #include <ctime>
 #include <string>
 
+void Farben();
+
 #define RESET "\033[0m"
 #define RED "\033[31m"
 #define GREEN "\033[32m"
@@ -10,15 +12,21 @@
 #define LILA "\033[35m"
 #define CYAN "\033[36m"
 
-
 int main() 
 {
-    std::cout << RED << "Hallo ich bin rot" << RESET << '\n';
-    std::cout << YELLOW << "Hallo ich bin gelb" << RESET << '\n';
-    std::cout << GREEN << "Hallo ich bin gruen" << RESET << '\n';
-    std::cout << BLUE << "Hallo ich bin blau" << RESET << '\n';
-    std::cout << CYAN << "Hallo ich bin cyan" << RESET << '\n';
-    std::cout << LILA << "Hallo ich bin lila" << RESET << '\n';
+    Farben();
 
     std::cin.get();
+}
+void Farben()
+{
+    std::string farben[] = { RED, GREEN, YELLOW, BLUE, LILA, CYAN };
+    int size = sizeof(farben) / sizeof(farben[0]);
+
+    srand(time(nullptr));
+
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << farben[i] << "Hallo ich bin in einer coolen farbe" << RESET << std::endl;
+    }
 }
