@@ -2,38 +2,29 @@
 #include <ctime>
 #include <string>
 
-struct Vector3
-{
-    float x, y, z;
+using String = std::string;
 
-    Vector3()
-        : x(10), y(11), z(12) { }
+class Entity
+{
+private:
+    String m_Name;
+public:
+    Entity() : m_Name("Unknown") {}
+    Entity(const String& name) : m_Name(name) {}
+
+    const String& GetName() const { return m_Name; }
 };
 
 int main() 
 {
-    int val = 5;
-    int array[5];
-    array[0] = 1;
-    array[1] = 2;
-    array[2] = 3;
-    array[3] = 4;
-    array[4] = 5;
-    Vector3 vector;
 
-    int* hval = new int;
-    *hval = 5;
-    int* harray = new int[5];
-    harray[0] = 1;
-    harray[1] = 2;
-    harray[2] = 3;
-    harray[3] = 4;
-    harray[4] = 5;
-    Vector3* hvector = new Vector3();
-
-    delete hval;
-    delete[] harray;
-    delete hvector;
+    Entity* e;
+    {
+        Entity* entity = new Entity("TheoLord");
+        e = entity;
+        std::cout << entity->GetName() << std::endl;
+    }
 
     std::cin.get();
+    delete e;
 }
