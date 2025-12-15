@@ -2,47 +2,38 @@
 #include <ctime>
 #include <string>
 
-class Log
+struct Vector3
 {
-public:
-    const int LogLevelError = 0;
-    const int LogLevelWarning = 1;
-    const int LogLevelInf = 2;
-private:
-    int m_LogLevel = LogLevelInf;
-public:
-    void SetLevel(int level)
-    {
-        m_LogLevel = level;
-    }
+    float x, y, z;
 
-    void Error(const char* message)
-    {
-        if (m_LogLevel >= LogLevelError)
-            std::cout << "[ERROR]" << message << std::endl;
-    }
-
-    void Warn(const char* message)
-    {
-        if(m_LogLevel >= LogLevelWarning)
-            std::cout << "[WARNING]" << message << std::endl;
-    }
-
-    void Inf(const char* message)
-    {
-        if (m_LogLevel >= LogLevelInf)
-            std::cout << "[INFO]" << message << std::endl;
-    }
+    Vector3()
+        : x(10), y(11), z(12) { }
 };
 
 int main() 
 {
-    Log log;
-    log.SetLevel(log.LogLevelError);
-    log.Warn(" hello");
-    log.Error(" lord sigma");
-    log.Inf(" EYYYYYYY");
+    int val = 5;
+    int array[5];
+    array[0] = 1;
+    array[1] = 2;
+    array[2] = 3;
+    array[3] = 4;
+    array[4] = 5;
+    Vector3 vector;
 
+    int* hval = new int;
+    *hval = 5;
+    int* harray = new int[5];
+    harray[0] = 1;
+    harray[1] = 2;
+    harray[2] = 3;
+    harray[3] = 4;
+    harray[4] = 5;
+    Vector3* hvector = new Vector3();
+
+    delete hval;
+    delete[] harray;
+    delete hvector;
 
     std::cin.get();
 }
