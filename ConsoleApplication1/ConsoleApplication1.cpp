@@ -2,37 +2,34 @@
 #include <vector>
 #include <string>
 
-struct Vertex
+class Entity
 {
-    float x, y, z;
+public:
+    float X, Y;
+
+
+    Entity(float x, float y)
+    {
+        X = x;
+        Y = y;
+    }
+    
+    Entity()
+    {
+        X = 0.0f;
+        Y = 0.0f;
+    }
+
+    void Print()
+    {
+        std::cout << X << ", " << Y << std::endl;
+    }
 };
-
-std::ostream& operator<<(std::ostream& stream, const Vertex& vertex)
-{
-    stream << vertex.x << ", " << vertex.y << ", " << vertex.z;
-    return stream;
-}
-
-void Function(const std::vector<Vertex>& vertices)
-{
-
-}
 
 int main() 
 {
-    std::vector<Vertex> vertices;
-    vertices.push_back({ 1, 2, 3 });
-    vertices.push_back({ 4, 5, 6 });
-    Function(vertices);
-
-    for (int i = 0; i < vertices.size(); i++)
-        std::cout << vertices[i] << std::endl;
-
-    for (Vertex& v : vertices)
-        std::cout << v << std::endl;
-
-    vertices.clear();
-
+    Entity e(10.0, 5.0);
+    e.Print();
 
     std::cin.get();
 }
