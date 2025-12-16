@@ -2,29 +2,20 @@
 #include <ctime>
 #include <string>
 
-using String = std::string;
-
-class Entity
-{
-private:
-    String m_Name;
-public:
-    Entity() : m_Name("Unknown") {}
-    Entity(const String& name) : m_Name(name) {}
-
-    const String& GetName() const { return m_Name; }
-};
+#define LOG(x) std::cout << x << std::endl;
 
 int main() 
 {
 
-    Entity* e;
-    {
-        Entity* entity = new Entity("TheoLord");
-        e = entity;
-        std::cout << entity->GetName() << std::endl;
-    }
+    char* buffer = new char[8];
+    memset(buffer, 0, 8);
 
+    char** ptr = &buffer;
+
+    delete[] buffer;
+    //int var = 8;
+    //int* ptr = &var;
+    //*ptr = 10;
+    //LOG(var);
     std::cin.get();
-    delete e;
 }
