@@ -2,48 +2,33 @@
 #include <ctime>
 #include <string>
 
-class Item
+class Player
 {
-public:
-    std::string itemname;
-    std::string discriptions;
-    int cost;
-    float dmg;
-    
-    void Use(std::string name)
-    {
-        std::cout << name <<" is beeing used " << std::endl;
-    }    
+    int x, y;
+    float speed;
 
-    Item()
+    void Move(int xa, int ya)
     {
-        itemname = "Unknown";
-        discriptions = "This is a Item";
-        cost = 0;
-        dmg = 1.2f;
+        x += xa * speed;
+        x += xa * speed;
     }
+};
 
-    void print()
+struct Vec2
+{
+    float x, y;
+
+    void Add(const Vec2& other)
     {
-        std::cout << "Itemname: " << itemname << '\n'
-                  << "Description: " << discriptions << '\n'
-                  << "Cost: " << cost << '\n'
-                  << "Damage: " << dmg << '\n';
+        x += other.x;
+        y += other.y;
     }
 };
 
 int main() 
 {
-    std::string name;
-    std::cout << "Enter the item: ";
-    std::cin >> name;
-
-    Item item;
-    item.dmg = 23.3f;
-    item.cost = 23;
-    item.Use(name);
-    item.itemname = name;
-    item.print();
+    Player player;
+    player.Move(1, -1);
 
     std::cin.get();
 }
