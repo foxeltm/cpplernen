@@ -1,34 +1,38 @@
 #include <iostream>
-#include <ctime>
+#include <vector>
 #include <string>
 
-class Player
+struct Vertex
 {
-    int x, y;
-    float speed;
-
-    void Move(int xa, int ya)
-    {
-        x += xa * speed;
-        x += xa * speed;
-    }
+    float x, y, z;
 };
 
-struct Vec2
+std::ostream& operator<<(std::ostream& stream, const Vertex& vertex)
 {
-    float x, y;
+    stream << vertex.x << ", " << vertex.y << ", " << vertex.z;
+    return stream;
+}
 
-    void Add(const Vec2& other)
-    {
-        x += other.x;
-        y += other.y;
-    }
-};
+void Function(const std::vector<Vertex>& vertices)
+{
+
+}
 
 int main() 
 {
-    Player player;
-    player.Move(1, -1);
+    std::vector<Vertex> vertices;
+    vertices.push_back({ 1, 2, 3 });
+    vertices.push_back({ 4, 5, 6 });
+    Function(vertices);
+
+    for (int i = 0; i < vertices.size(); i++)
+        std::cout << vertices[i] << std::endl;
+
+    for (Vertex& v : vertices)
+        std::cout << v << std::endl;
+
+    vertices.clear();
+
 
     std::cin.get();
 }
