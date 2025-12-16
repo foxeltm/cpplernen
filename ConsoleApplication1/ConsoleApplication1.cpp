@@ -2,20 +2,48 @@
 #include <ctime>
 #include <string>
 
-#define LOG(x) std::cout << x << std::endl;
+class Item
+{
+public:
+    std::string itemname;
+    std::string discriptions;
+    int cost;
+    float dmg;
+    
+    void Use(std::string name)
+    {
+        std::cout << name <<" is beeing used " << std::endl;
+    }    
+
+    Item()
+    {
+        itemname = "Unknown";
+        discriptions = "This is a Item";
+        cost = 0;
+        dmg = 1.2f;
+    }
+
+    void print()
+    {
+        std::cout << "Itemname: " << itemname << '\n'
+                  << "Description: " << discriptions << '\n'
+                  << "Cost: " << cost << '\n'
+                  << "Damage: " << dmg << '\n';
+    }
+};
 
 int main() 
 {
+    std::string name;
+    std::cout << "Enter the item: ";
+    std::cin >> name;
 
-    char* buffer = new char[8];
-    memset(buffer, 0, 8);
+    Item item;
+    item.dmg = 23.3f;
+    item.cost = 23;
+    item.Use(name);
+    item.itemname = name;
+    item.print();
 
-    char** ptr = &buffer;
-
-    delete[] buffer;
-    //int var = 8;
-    //int* ptr = &var;
-    //*ptr = 10;
-    //LOG(var);
     std::cin.get();
 }
