@@ -7,17 +7,16 @@ class Entity
 public:
     float X, Y;
 
-
-    Entity(float x, float y)
-    {
-        X = x;
-        Y = y;
-    }
-    
     Entity()
     {
         X = 0.0f;
         Y = 0.0f;
+        std::cout << "Constructed Entity " << std::endl;
+    }
+
+    ~Entity()
+    {
+        std::cout << "Destroyed Entity! " << std::endl;
     }
 
     void Print()
@@ -26,10 +25,16 @@ public:
     }
 };
 
+void Function()
+{
+    Entity e;
+    e.Print();
+}
+
 int main() 
 {
-    Entity e(10.0, 5.0);
-    e.Print();
+    Function();
+
 
     std::cin.get();
 }
